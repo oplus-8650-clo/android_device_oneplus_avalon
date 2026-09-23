@@ -74,8 +74,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(
         r'(service vendor\.camera-provider .*?\n)',
         r'\1    setenv JE_MALLOC_ZERO_FILLING 1\n'),
-    'vendor/lib64/libcwb_qcom_aidl.so': blob_fixup()
-        .add_needed('libui_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
