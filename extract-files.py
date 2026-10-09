@@ -1,4 +1,4 @@
-#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
+#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils:../../../hardware/oplus/extract-utils-ext python3
 #
 # SPDX-FileCopyrightText: 2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
@@ -15,6 +15,9 @@ from extract_utils.fixups_lib import (
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
+)
+from extract_utils_oplus import (
+    add_generated_thermal_engine_config,
 )
 
 namespace_imports = [
@@ -86,6 +89,11 @@ module = ExtractUtilsModule(
     namespace_imports=namespace_imports,
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
+)
+
+add_generated_thermal_engine_config(
+    module,
+    horae_target_config='system_ext/etc/horae/horae_SM7675.conf',
 )
 
 if __name__ == '__main__':
