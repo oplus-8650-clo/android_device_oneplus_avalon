@@ -46,17 +46,12 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(r'(fdSupport += )TRUE;', r'\1FALSE;')
         # Expose AUX cameras
         .regex_replace('SystemCamera =  0;  0;  0;  0;  1;', 'SystemCamera =  0;  0;  0;  0;  0;'),
-    'odm/lib64/libAlgoProcess.so': blob_fixup()
-        .replace_needed('android.hardware.graphics.common-V3-ndk.so', 'android.hardware.graphics.common-V7-ndk.so')
-        .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
-    ('odm/lib64/libCOppLceTonemapAPI.so', 'odm/lib64/libSuperRaw.so', 'odm/lib64/libYTCommon.so', 'odm/lib64/libyuv2.so'): blob_fixup()
+    'odm/lib64/libSuperRaw.so': blob_fixup()
         .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
-    ('odm/lib64/libHIS.so', 'odm/lib64/libOGLManager.so', 'odm/lib64/libOPAlgoCamAiBeautyFaceRetouchCn.so', 'odm/lib64/libOPAlgoCamFaceBeautyCap.so'): blob_fixup()
-        .clear_symbol_version('AHardwareBuffer_acquire')
+    ('odm/lib64/libHIS.so', 'odm/lib64/libOGLManager.so'): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_describe')
         .clear_symbol_version('AHardwareBuffer_lock')
-        .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
     'odm/lib64/libarcsoft_high_dynamic_range_v4.so': blob_fixup()
