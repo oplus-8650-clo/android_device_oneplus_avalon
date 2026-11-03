@@ -27,6 +27,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/display/displayconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947214369728643.xml
 
 # Fingerprint
+$(call soong_config_set_bool,qtidisplay,legacy_cwb_config,true)
 $(call soong_config_set_bool,qtidisplay,oplus_udfps,true)
 
 # Overlays
