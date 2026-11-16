@@ -27,11 +27,18 @@ namespace_imports = [
 ]
 
 
+def lib_fixup_odm_suffix(lib: str, partition: str, *args, **kwargs):
+    return f'{lib}_{partition}' if partition == 'odm' else None
+
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
+    (
+        'odm/lib64/android.hardware.vibrator-V2-ndk.so',
+        'odm/lib64/vendor.aac.hardware.richtap.vibrator-V2-ndk.so',
+    ): lib_fixup_odm_suffix,
     (
         'com.qti.sensor.s5k3p9',
         'libhwconfigurationutil',
