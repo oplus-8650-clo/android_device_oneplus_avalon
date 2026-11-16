@@ -289,6 +289,12 @@
         <item>/system_ext/app/KeyHandler/KeyHandler.apk</item>
     </string-array>
 
+    <!-- Whether to use Richtap vibration -->
+    <bool name="config_usesRichtapVibration">true</bool>
+
+    <!-- Whether to use LiveTap vibration. -->
+    <bool name="config_usesLivetapVibration">true</bool>
+
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
         <item>org.lineageos.settings.device.KeyHandler</item>
