@@ -306,6 +306,16 @@
 
          Note: If the display supports multiple resolutions, please define the path config based on
          the highest resolution so that it can be scaled correctly in each resolution. -->
-    <string translatable="false" name="config_mainDisplayShape">M20 0h1040s20 0 20 20v2360s0 20 -20 20h-1040s-20 0 -20 -20v-2360s0 -20 20 -20</string>
-
+    <string translatable="false" name="config_mainDisplayShape">
+        M 95,0
+        L 1145,0
+        A 95,95 0 0,1 1240,95
+        L 1240,2677
+        A 95,95 0 0,1 1145,2772
+        L 95,2772
+        A 95,95 0 0,1 0,2677
+        L 0,95
+        A 95,95 0 0,1 95,0
+        Z
+    </string>
 </resources>
